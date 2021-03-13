@@ -1,0 +1,16 @@
+#!/bin/bash
+
+vmi() {
+  local DIRECTORY="$XDG_CACHE_HOME"
+  local FILE_PATH="$DIRECTORY"/vmi-counter.txt
+
+  mkdir -p "$DIRECTORY"
+  touch "$FILE_PATH"
+  read -r count < "$FILE_PATH"
+
+  new_count=$((count + 1))
+
+  echo "$new_count" > "$FILE_PATH"
+
+  echo "Wow. You've spelt 'vim' wrong $new_count times!"
+}
